@@ -1,0 +1,22 @@
+<ion-view view-title="Produtos">
+  <ion-content class="padding">
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="produto in produtos" type="item-text-wrap" href="#/tab/produto-detalhe/{{produto.id}}">
+        <img ng-src="{{produto.foto}}">
+        <h2>{{produto.nome}}</h2>
+        <p>{{produto.preco | currency}}</p>
+        <p>{{produto.descricao}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>        
+        <ion-option-button class="button-assertive" ng-click="remove(produto)">
+          Remover
+        </ion-option-button>
+      </ion-item>
+    </ion-list>    
+
+    <br />
+    <button class="button button-block button-positive" ng-click="add()">Adicionar</button>
+
+  </ion-content>
+  
+</ion-view>

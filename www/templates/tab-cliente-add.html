@@ -1,0 +1,26 @@
+<ion-view view-title="Cadastrar Cliente">
+  <ion-content class="padding">
+    <form name="frmCliente" ng-submit="addCliente(cliente)" >
+    <div class="list">
+      <label class="item item-input item-input-inset">
+        <span class="input-label">Nome</span>
+        <input type="text" name="nome" ng-model="cliente.nome" required ng-disabled="isDisabled" placeholder="Nome"/>
+      </label>      
+      </div>
+      <div class="list">
+      <label class="item item-input item-input-inset">
+        <span class="input-label">Sobrenome</span>
+        <input type="text" name="sobrenome" ng-model="cliente.sobrenome" ng-disabled="isDisabled" required placeholder="Sobrenome">
+      </label>
+      </div>
+      <div class="list">
+      <label class="item item-input item-input-inset">
+        <span class="input-label">E-mail</span>
+        <input type="email" name="email" ng-model="cliente.email" required ng-disabled="isDisabled" placeholder="E-mail">
+      </label>
+      </div>
+      <br />
+      <input type="submit" value="Salvar" class="button button-balanced" ng-hide="isDisabled" ng-disabled="frmCliente.$invalid" > 
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view view-title="Loja do {{clienteEmCompra.nome}}">
+  <ion-content class="padding">
+
+	<div class="list" ng-repeat="produto in produtos">
+	 <div class="item item-thumbnail-left" >
+	      <img ng-src="{{produto.foto}}">
+        <h2>{{produto.nome}}</h2>
+        <p>{{produto.preco | currency}}</p>
+        <p>{{produto.descricao}}</p>
+        <br />
+        <br />        
+	 </div>
+
+    <div class="item">
+      <button class="button button-block icon ion-plus-circled button-balanced" ng-click="addProduto(produto)"> Adicionar ao Carrinho</button>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

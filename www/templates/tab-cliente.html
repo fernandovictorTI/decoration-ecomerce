@@ -1,0 +1,19 @@
+<ion-view view-title="Clientes">
+  <ion-content class="padding">
+    
+	<ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="cliente in clientes" type="item-text-wrap" href="#/tab/cliente-detalhe/{{cliente.id}}">
+        <h2><i class="ion-person"></i>{{cliente.nome}}</h2>
+        <p>{{cliente.email}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>        
+        <ion-option-button class="button-assertive" ng-click="remove(cliente)">
+          Remover
+        </ion-option-button>
+      </ion-item>
+    </ion-list>  
+    <br />
+    <button class="button button-block button-positive" ng-click="add()">Adicionar</button>
+    <hr />
+
+  </ion-content>
+</ion-view>

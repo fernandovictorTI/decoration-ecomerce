@@ -1,0 +1,34 @@
+<ion-view view-title="Cadastrar Produto">
+  <ion-content class="padding">
+    
+    <form name="frmProduto" ng-submit="addProduto(produto)" >
+    <div class="list">
+      <label class="item item-input item-input-inset">
+        <span class="input-label">Nome</span>
+        <input type="text" name="nome" ng-model="produto.nome" required ng-disabled="isDisabled" placeholder="Nome">
+      </label>      
+      </div>
+      <div class="list">
+      <label class="item item-input item-input-inset">
+        <span class="input-label">Descrição</span>
+        <input type="text" name="descricao" ng-model="produto.descricao" required ng-disabled="isDisabled" placeholder="Descrição">
+      </label>
+      </div>
+      <div class="list">
+      <label class="item item-input item-input-inset">
+        <span class="input-label">Preço</span>
+        <input type="text" name="preco" ng-model="produto.preco" required ng-disabled="isDisabled" placeholder="Preço">
+      </label>
+      </div>
+      <div class="list">
+      <label class="item item-input item-input-inset">
+        <span class="input-label">URl da foto do produto</span>
+        <input type="text" name="preco" ng-model="produto.foto" required ng-disabled="isDisabled" placeholder="URl da foto do produto">
+      </label>
+      </div>
+      <br />
+      <input type="submit" value="Salvar" class="button button-balanced" ng-hide="isDisabled" ng-disabled="frmProduto.$invalid">
+    </form>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view view-title="Login">
+  <ion-content class="padding">
+
+  <form name="frmLogin" ng-submit="logar(cliente)" >
+
+	<div class="list">
+		<label class="item item-input item-input-inset">
+			<span class="input-label">E-mail</span>
+			<input type="text" name="email" ng-model="cliente.email" required ng-disabled="E-mail" placeholder="E-mail">
+		</label>      
+	</div>
+
+	<div class="list">
+		<label class="item item-input item-input-inset">
+			<span class="input-label">Senha</span>
+			<input type="text" name="senha" ng-model="cliente.senha" required placeholder="Senha">
+		</label>
+	</div>
+
+	<br />
+    <input type="submit" value="Login" class="button button-balanced" ng-hide="isDisabled" ng-disabled="frmLogin.$invalid">
+
+  </form>
+
+   </ion-content>
+</ion-view>

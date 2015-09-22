@@ -13,7 +13,7 @@ angular
   .run(run)
   .config(config);
 
-function run($ionicPlatform){
+function run($ionicPlatform, $http, $state, $stateParams, $cookieStore){
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -25,6 +25,18 @@ function run($ionicPlatform){
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
+    }
+  });
+
+  $rootScope.globals = $cookieStore.get('globals') || {};
+  
+  if ($rootScope.globals.currentUser) {
+    $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
+  }
+
+  $rootScope.$on('$locationChangeStart', function (event, next, current) {  
+    if ($state() !== 'tab.login' && !$rootScope.globals.currentUser) {
+      $state.go('tab.login');
     }
   });
 }
@@ -42,6 +54,15 @@ function config($stateProvider, $urlRouterProvider){
       abstract: true,
       templateUrl: 'templates/tabs.html'
   })
+  .state('tab.login', {
+      url: '/login',
+      views: {
+        'tab-login': {
+          templateUrl: 'templates/tab-login.html',
+          controller: 'AutenticacaoCtrl'
+        }
+      }
+    })
   .state('tab.loja', {
       url: '/loja',
       views: {
@@ -107,7 +128,7 @@ function config($stateProvider, $urlRouterProvider){
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/loja');
+  $urlRouterProvider.otherwise('/login');
 }
 
 })();

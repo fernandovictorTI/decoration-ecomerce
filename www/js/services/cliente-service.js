@@ -11,7 +11,8 @@
 	        id : 1, 
 	        nome : 'Fernando', 
 	        sobrenome : 'Victor', 
-	        email : 'fernandovictorti@gmail.com'
+	        email : 'fernandovictorti@gmail.com',
+	        senha : '123'
 	      }
 	    ];
 

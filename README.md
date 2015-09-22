@@ -12,6 +12,7 @@ decoration-ecomerce
 ### installing
 
   Npm install bower cordova ionic gulp -g resolves global deps
+  
   Npm install resolves project deps
   
 ### running

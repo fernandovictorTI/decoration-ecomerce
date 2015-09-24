@@ -4,7 +4,7 @@
     .module('app')
     .controller('LojaCtrl', LojaCtrl);
 
-    function LojaCtrl($scope, $state, $ionicPopup, $stateParams, ClienteService, ProdutoService){
+    function LojaCtrl($scope, $state, $ionicPopup, $stateParams, ClienteService, ProdutoService, $rootScope){
       
       $scope.run = run;
       $scope.selecionarCliente = selecionarCliente;
@@ -35,6 +35,8 @@
       }
 
       function run(){
+
+        console.log($rootScope.globals.currentUser.email);
 
         $scope.popup = $ionicPopup.show({
         template: '<ul class="list"><li ng-repeat="cliente in clientes"> <button class="button button-block button-calm" ng-click="selecionarCliente(cliente)">{{cliente.nome}}</button></li></ul>',

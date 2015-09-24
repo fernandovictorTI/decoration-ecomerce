@@ -16,7 +16,7 @@
                 }
             };
   
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
+            $http.defaults.headers.common['Authorization'] = 'Basic ';
             $cookieStore.put('globals', $rootScope.globals);
         };
   

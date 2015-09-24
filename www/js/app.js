@@ -9,11 +9,11 @@
 (function(){
 
 angular
-  .module('app', ['ionic'])
+  .module('app', ['ionic', 'ngCookies'])
   .run(run)
   .config(config);
 
-function run($ionicPlatform, $http, $state, $stateParams, $cookieStore){
+function run($ionicPlatform, $http, $state, $stateParams, $cookieStore, $rootScope){
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -26,7 +26,7 @@ function run($ionicPlatform, $http, $state, $stateParams, $cookieStore){
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
-  });
+  });  
 
   $rootScope.globals = $cookieStore.get('globals') || {};
   
@@ -35,7 +35,8 @@ function run($ionicPlatform, $http, $state, $stateParams, $cookieStore){
   }
 
   $rootScope.$on('$locationChangeStart', function (event, next, current) {  
-    if ($state() !== 'tab.login' && !$rootScope.globals.currentUser) {
+    console.log($state.$current.url.source)
+    if ($state.$current.url.source !== 'tab/login' && !$rootScope.globals.currentUser) {
       $state.go('tab.login');
     }
   });

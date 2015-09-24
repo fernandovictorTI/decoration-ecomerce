@@ -6,11 +6,10 @@
 
     function AutenticacaoCtrl($scope, $state, AutenticacaoService){
 
-    	$scope.login = login;
+    	$scope.logar = logar;
     	AutenticacaoService.clearCredentials();
 
-    	function login(cliente){
-
+    	function logar(cliente){
     		if(AutenticacaoService.login(cliente)){
     			AutenticacaoService.setCredentials(cliente.email, cliente.senha);
     			$state.go("tab.loja");
@@ -19,7 +18,6 @@
 					$state.go('tab.login');
 				});
     		}
-
     	}
 
     }

@@ -35,8 +35,8 @@ function run($ionicPlatform, $http, $state, $stateParams, $cookieStore, $rootSco
   }
 
   $rootScope.$on('$locationChangeStart', function (event, next, current) {  
-    console.log($state.$current.url.source)
-    if ($state.$current.url.source !== 'tab/login' && !$rootScope.globals.currentUser) {
+    console.log($state.$current.url.source);
+    if ($state.$current.url.source !== '/tab/login' && !$rootScope.globals.currentUser && $state.$current.url.source !== '/tab/cliente-add') {
       $state.go('tab.login');
     }
   });

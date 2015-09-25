@@ -20,6 +20,8 @@
         }
 
         $scope.clienteEmCompra.produtos.push(item);
+
+        console.log($scope.clienteEmCompra);
         
         var confirmPopup = $ionicPopup.confirm({
           title: 'Produto Adicionado com Sucesso',
@@ -35,20 +37,12 @@
       }
 
       function run(){
-
-        console.log($rootScope.globals.currentUser.email);
-
-        $scope.popup = $ionicPopup.show({
-        template: '<ul class="list"><li ng-repeat="cliente in clientes"> <button class="button button-block button-calm" ng-click="selecionarCliente(cliente)">{{cliente.nome}}</button></li></ul>',
-        title: 'Selecione um cliente',
-        subTitle: '',
-        scope: $scope        
-        });
-
+        if($rootScope.globals.currentUser != null || $rootScope.globals.currentUser != undefined){
+          selecionarCliente($rootScope.globals.currentUser);
+        }
       }
 
       function selecionarCliente(cliente){
-        $scope.popup.close();
         $scope.clienteEmCompra = cliente;
       }
 

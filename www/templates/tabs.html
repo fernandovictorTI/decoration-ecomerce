@@ -6,14 +6,19 @@ navigation history that also transitions its views in and out.
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
   <!-- Login Tab -->
-  <ion-tab title="Loja" icon-off="ion-bag" icon-on="ion-bag" href="#/tab/login">
+  <ion-tab title="Login" href="#/tab/login" class="hide">
     <ion-nav-view name="tab-login"></ion-nav-view>
   </ion-tab>  
 
   <!-- Loja Tab -->
   <ion-tab title="Loja" icon-off="ion-bag" icon-on="ion-bag" href="#/tab/loja">
     <ion-nav-view name="tab-loja"></ion-nav-view>
-  </ion-tab>  
+  </ion-tab>
+
+  <!-- Carrinho Tab -->
+  <ion-tab title="Carrinho" icon-off="ion-android-playstore" icon-on="ion-android-playstore" href="#/tab/carrinho">
+    <ion-nav-view name="tab-carrinho"></ion-nav-view>
+  </ion-tab>    
 
   <!-- Produtos Tab -->
   <ion-tab title="Produtos" icon-off="ion-cube" icon-on="ion-cube" href="#/tab/produto">

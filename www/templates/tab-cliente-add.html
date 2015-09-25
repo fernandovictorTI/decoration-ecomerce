@@ -19,6 +19,12 @@
         <input type="email" name="email" ng-model="cliente.email" required ng-disabled="isDisabled" placeholder="E-mail">
       </label>
       </div>
+      <div class="list">
+        <label class="item item-input item-input-inset">
+          <span class="input-label">Senha</span>
+          <input type="password" name="senha" ng-model="cliente.senha" required ng-disabled="isDisabled" placeholder="Senha" maxlength="6">
+        </label>
+      </div>
       <br />
       <input type="submit" value="Salvar" class="button button-balanced" ng-hide="isDisabled" ng-disabled="frmCliente.$invalid" > 
     </form>

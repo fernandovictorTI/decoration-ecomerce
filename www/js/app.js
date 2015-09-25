@@ -34,8 +34,7 @@ function run($ionicPlatform, $http, $state, $stateParams, $cookieStore, $rootSco
     $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
   }
 
-  $rootScope.$on('$locationChangeStart', function (event, next, current) {  
-    console.log($state.$current.url.source);
+  $rootScope.$on('$locationChangeStart', function (event, next, current) {      
     if ($state.$current.url.source !== '/tab/login' && !$rootScope.globals.currentUser && $state.$current.url.source !== '/tab/cliente-add') {
       $state.go('tab.login');
     }

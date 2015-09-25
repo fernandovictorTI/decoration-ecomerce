@@ -4,25 +4,19 @@
     .module('app')
     .controller('LojaCtrl', LojaCtrl);
 
-    function LojaCtrl($scope, $state, $ionicPopup, $stateParams, ClienteService, ProdutoService, $rootScope){
+    function LojaCtrl($scope, $state, $ionicPopup, $stateParams, ClienteService, ProdutoService, $rootScope, LojaService){
       
-      $scope.run = run;
-      $scope.selecionarCliente = selecionarCliente;
+      $scope.addProduto = addProduto;
       $scope.clientes = ClienteService.all();
       $scope.clienteEmCompra = {};
       $scope.produtos = ProdutoService.all();
-      $scope.addProduto = addProduto;
+      $scope.run = run;
+      $scope.selecionarCliente = selecionarCliente;
 
       function addProduto(item){
 
-        if($scope.clienteEmCompra.produtos == undefined || $scope.clienteEmCompra.produtos == null){
-          $scope.clienteEmCompra.produtos = [];
-        }
+        LojaService.updateCarrinho(item);
 
-        $scope.clienteEmCompra.produtos.push(item);
-
-        console.log($scope.clienteEmCompra);
-        
         var confirmPopup = $ionicPopup.confirm({
           title: 'Produto Adicionado com Sucesso',
           template: 'Deseja ir para o carrinho?'
@@ -30,7 +24,7 @@
 
         confirmPopup.then(function(res) {
           if(res) {
-            
+            $state.go('tab.carrinho')
           }
         });
 

@@ -29,16 +29,6 @@ function run($ionicPlatform, $http, $state, $stateParams, $cookieStore, $rootSco
   });  
 
   $rootScope.globals = $cookieStore.get('globals') || {};
-  
-  if ($rootScope.globals.currentUser) {
-    $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
-  }
-
-  $rootScope.$on('$locationChangeStart', function (event, next, current) {      
-    if ($state.$current.url.source !== '/tab/login' && !$rootScope.globals.currentUser && $state.$current.url.source !== '/tab/cliente-add') {
-      $state.go('tab.login');
-    }
-  });
 }
 
 function config($stateProvider, $urlRouterProvider){
@@ -123,6 +113,15 @@ function config($stateProvider, $urlRouterProvider){
       'tab-cliente': {
         templateUrl: 'templates/tab-cliente-add.html',
         controller: 'ClienteCtrl'
+      }
+    }
+  })
+  .state('tab.carrinho', {
+    url: '/carrinho',
+    views: {
+      'tab-carrinho': {
+        templateUrl: 'templates/tab-carrinho.html',
+        controller: 'CarrinhoCtrl'
       }
     }
   });

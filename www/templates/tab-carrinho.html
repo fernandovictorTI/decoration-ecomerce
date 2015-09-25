@@ -1,0 +1,12 @@
+<ion-view view-title="Carrinho">
+	<ion-content class="padding">
+
+		{{clienteEmCompra.produtos.length}}
+
+		<div class="button-bar">
+			<a class="button button-assertive" ng-click="limparCarrinho()">Limpar Carrinho</a>
+			<a class="button button-balanced" ng-click="finalizarPedido()" ng-disabled="clienteEmCompra.produtos.length === 0">Finalizar Pedido</a>
+		</div>
+
+	</ion-content>
+</ion-view>

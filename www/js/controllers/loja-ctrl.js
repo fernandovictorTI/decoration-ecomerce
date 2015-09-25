@@ -30,20 +30,6 @@
 
       }
 
-      function run(){
-        if($rootScope.globals.currentUser != null || $rootScope.globals.currentUser != undefined){
-          selecionarCliente($rootScope.globals.currentUser);
-        }
-      }
-
-      function selecionarCliente(cliente){
-        $scope.clienteEmCompra = cliente;
-      }
-
-      if(Object.keys($scope.clienteEmCompra).length == 0){
-        $scope.run();
-      }
-
     }
 
 })();

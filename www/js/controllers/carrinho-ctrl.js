@@ -4,16 +4,29 @@
 		.module('app')
 		.controller('CarrinhoCtrl', CarrinhoCtrl);
 
-	function CarrinhoCtrl($scope, LojaService){
+	function CarrinhoCtrl($scope, LojaService, $state){
 
 		$scope.clienteEmCompra = {};
+		$scope.limparCarrinho = limparCarrinho;
 		$scope.run = run;
 		$scope.selecionarCliente = selecionarCliente;
 
+		function limparCarrinho(){
+			
+			LojaService.limparCarrinho();
+
+			$ionicPopup.alert({title : 'Carrinho limpado com sucesso.', subTitle : ''}).then(function(){
+				$state.go('tab.loja');
+			});
+		}
+
 		function run(){
-		    if($rootScope.globals.currentUser != null || $rootScope.globals.currentUser != undefined){
-		      selecionarCliente($rootScope.globals.currentUser);
-		    }
+			
+			if(angular.isUndefined($rootScope.globals.currentUser)){
+				$state.go('tab.login');
+			}
+		    
+		    selecionarCliente($rootScope.globals.currentUser);
 	    }
 
 		function selecionarCliente(cliente){

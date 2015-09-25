@@ -20,7 +20,7 @@
 
     		if(clienteLogado != null || clienteLogado != undefined){
     			AutenticacaoService.setCredentials(clienteLogado);
-    			$state.go("tab.loja");
+    			$state.go("tab.carrinho");
     		}else{
 				$ionicPopup.alert({title : 'Usuário ou senha incorretos', subTitle : ''}).then(function(){
 					$state.go('tab.login');
